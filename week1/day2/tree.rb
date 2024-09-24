@@ -1,4 +1,5 @@
-
+# Change the Tree class implementation so that the initializer accepts
+# a nested structure of hashes.
 
 class Tree
   attr_accessor :children, :node_name

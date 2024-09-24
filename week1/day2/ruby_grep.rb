@@ -1,3 +1,5 @@
+# Write a simple grep that will print the lines of a file having any
+# occurrences o a phrase anywhere in that line.
 
 filename, pattern = ARGF.argv
 re = Regexp.new(pattern)
