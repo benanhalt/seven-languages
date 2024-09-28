@@ -1,0 +1,38 @@
+
+Note the org-contrib package is required to get the ob-io package for
+Io code blocks.
+
+#+BEGIN_SRC elisp
+  (require 'ob-io)
+#+END_SRC
+
+#+RESULTS:
+: ob-io
+
+
+#+BEGIN_SRC io :results output
+"Hello world" print
+#+END_SRC
+
+#+RESULTS:
+: Hello world
+
+#+BEGIN_SRC io
+  1 + "one"
+#+END_SRC
+
+#+RESULTS:
+: 
+:   Exception: argument 0 to method '+' must be a Number, not a 'Sequence'
+:   ---------
+:   +                                   io-O2XNwX 2
+:   CLI doFile                           Z_CLI.io 140
+:   CLI run                              IoState_runCLI() 1
+: 
+
+#+BEGIN_SRC io :results output
+ if(0, "true" print, "false" print)
+#+END_SRC
+
+#+RESULTS:
+: false
