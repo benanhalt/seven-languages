@@ -1,4 +1,4 @@
-
+* Setup
 Note the org-contrib package is required to get the ob-io package for
 Io code blocks.
 
@@ -9,13 +9,25 @@ Io code blocks.
 #+RESULTS:
 : ob-io
 
+* Some Io example programs:
+
+[[https://iolanguage.org/samples/index.html][Sample programs]]
 
 #+BEGIN_SRC io :results output
-"Hello world" print
+  "Hello world" print
 #+END_SRC
 
 #+RESULTS:
 : Hello world
+
+* Evaluate 1 + 1 and 1 + 'one'. Is Io strongly or weakly typed?
+
+#+BEGIN_SRC io
+  1 + 1
+#+END_SRC
+
+#+RESULTS:
+: 2
 
 #+BEGIN_SRC io
   1 + "one"
@@ -30,9 +42,46 @@ Io code blocks.
 :   CLI run                              IoState_runCLI() 1
 : 
 
+* Is 0 true or false? What about "" and nil?
 #+BEGIN_SRC io :results output
  if(0, "true" print, "false" print)
 #+END_SRC
 
 #+RESULTS:
+: true
+
+#+BEGIN_SRC io :results output
+ if("", "true" print, "false" print)
+#+END_SRC
+
+#+RESULTS:
+: true
+
+#+BEGIN_SRC io :results output
+ if(nil, "true" print, "false" print)
+#+END_SRC
+
+#+RESULTS:
 : false
+
+* How can you tell what slots a prototype supports?
+#+BEGIN_SRC io
+ Vehicle := Object clone
+ Vehicle description := "Something to take you places"
+ toyota := Vehicle clone
+ toyota description := "Japanese motor company"
+ toyota proto slotNames // The slots supported by the prototype of toyotan
+#+END_SRC
+
+#+RESULTS:
+: list(type, description)
+
+* Evaluate the code in a slot given its name.
+#+BEGIN_SRC io :results output
+  Dog := Object clone
+  Dog bark := method("woof!" print)
+  Dog bark
+#+END_SRC
+
+#+RESULTS:
+: woof!
